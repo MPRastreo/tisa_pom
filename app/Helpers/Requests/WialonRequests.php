@@ -19,7 +19,7 @@ class WialonRequests
             [
                 'form_params' =>
                 [
-                    'params' =>  '{"token":"9029f92f51ddd2d6f9b477235e32029fA551355ADABF65A4D32A684656C663CF57B266D8","operateAs":"","appName":"","checkService":""}',
+                    'params' =>  '{"token":"a0158e268161295c4c2fc6c24e805e8c032D38C900D4BBE5E62F0831B44DADCE5784CBB1","operateAs":"","appName":"","checkService":""}',
                     'sid'   =>  ''
                 ]
             ]);

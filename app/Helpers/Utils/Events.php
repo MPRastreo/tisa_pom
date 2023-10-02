@@ -233,7 +233,7 @@ class Events
             }
         }
 
-        count($unitsEvents) > 0 ?  Log::info($unitsEvents) : null;
+        count($unitsEvents) > 0 ?  NexusRequests::sendParams($unitsEvents) : null;
     }
 
     public static function saveDataEvents(array $arrayEvents) : void

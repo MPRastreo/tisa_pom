@@ -35,6 +35,6 @@ return [
     [
         'usuario' => 'maulet',
         'password' => 'm4u13t',
-        'api_token' => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Im1hdWxldCIsInByaW1hcnlzaWQiOiIzIiwibmJmIjoxNjkwNTYzNzUzLCJleHAiOjE2OTA2NTAxNTMsImlhdCI6MTY5MDU2Mzc1MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1NzE1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTcxNTUifQ.w4KV8m6BzFQk5JLfVjC6KnICcRFSSgv43xq_bfrnqEk'
+        'api_token' => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Im1hdWxldCIsInByaW1hcnlzaWQiOiIzIiwibmJmIjoxNjk2MjU3MDE4LCJleHAiOjE2OTYzNDM0MTgsImlhdCI6MTY5NjI1NzAxOCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1NzE1NSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTcxNTUifQ.Yp_jjUbkuWbBB6lJtwKiQdhpRsWwnJP1Dz_7cCLD_kE'
     ],
 ];
