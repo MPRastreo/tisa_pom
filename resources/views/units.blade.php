@@ -52,7 +52,7 @@
                                         @endif
                                         <h5
                                             class="block text-gray-50 font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                                            Unidad {{ $unit->unit_name }}</h5>
+                                            {{ $unit->unit_name }}</h5>
                                     </div>
                                 </div>
                             </div>
