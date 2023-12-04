@@ -16,7 +16,7 @@ class EventController extends Controller
     {
         try
         {
-            set_time_limit(160);
+            set_time_limit(120000);
 
             //Login in Wialon API
             $sessionWialon = WialonRequests::loginWialon();
@@ -36,6 +36,7 @@ class EventController extends Controller
         catch (Exception $ex)
         {
             Log::warning($ex->getMessage());
+
             Log::error($ex->getTraceAsString());
         }
     }
@@ -44,6 +45,8 @@ class EventController extends Controller
     {
         try
         {
+            set_time_limit(120000);
+            
             $unit = Event::find($id);
             $unit->status_events = !$unit->status_events;
             $unit->save();
