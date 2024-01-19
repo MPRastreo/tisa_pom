@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Requests\WialonRequests;
 use App\Helpers\Utils\Events;
 use App\Models\Event;
+use App\Services\LogService;
 use Exception;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
@@ -35,7 +36,7 @@ class EventController extends Controller
         catch (Exception $ex)
         {
             Log::warning($ex->getMessage());
-
+            LogService::sendToLog($ex->getMessage());
             Log::error($ex->getTraceAsString());
         }
     }
@@ -54,6 +55,7 @@ class EventController extends Controller
         }
         catch (Exception $ex)
         {
+            LogService::sendToLog($ex->getMessage());
             return Redirect::back()->withErrors(['message' => 'Hubo un error inesperado']);
         }
     }
