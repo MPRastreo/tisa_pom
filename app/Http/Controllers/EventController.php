@@ -6,7 +6,6 @@ use App\Helpers\Requests\WialonRequests;
 use App\Helpers\Utils\Events;
 use App\Models\Event;
 use Exception;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 
@@ -19,7 +18,7 @@ class EventController extends Controller
             set_time_limit(120000);
 
             //Login in Wialon API
-            $sessionWialon = WialonRequests::loginWialon();
+            $sessionWialon = WialonRequests::login();
 
             //Request to get data from units, included sensors
             $dataUnits = WialonRequests::getDataUnits($sessionWialon['_ID']);
@@ -46,7 +45,7 @@ class EventController extends Controller
         try
         {
             set_time_limit(120000);
-            
+
             $unit = Event::find($id);
             $unit->status_events = !$unit->status_events;
             $unit->save();

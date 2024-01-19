@@ -2,27 +2,30 @@
 
 namespace App\Helpers\Requests;
 
+use App\Services\LogService;
 use Exception;
 use GuzzleHttp\Client;
-use Illuminate\Support\Arr;
-use Whoops\Handler\PrettyPageHandler;
-use Whoops\Inspector\InspectorInterface;
 
 class WialonRequests
 {
-    public static function loginWialon() : array | Exception
+    public static function login() : array | Exception
     {
         try
         {
-            set_time_limit(120000);
+            $token = LogService::getToken();
+
+            if (empty($token))
+            {
+                LogService::renewToken();
+                return self::login();
+            }
 
             $client = new Client();
-            
             $response = $client->request('GET', 'https://hst-api.wialon.com/wialon/ajax.html?svc=token/login&sid=',
             [
                 'form_params' =>
                 [
-                    'params' =>  '{"token":"a0158e268161295c4c2fc6c24e805e8c032D38C900D4BBE5E62F0831B44DADCE5784CBB1","operateAs":"","appName":"","checkService":""}',
+                    'params' =>  '{"token":"'.$token.'","operateAs":"","appName":"","checkService":""}',
                     'sid'   =>  ''
                 ]
             ]);
@@ -33,7 +36,8 @@ class WialonRequests
             {
                 if (strcmp(strval($sessionWialon->reason), "INVALID_AUTH_TOKEN") === 0)
                 {
-                    throw new Exception('Los accesos han cambiado, favor de contactar al proveedor');
+                    LogService::renewToken();
+                    return self::login();
                 }
             }
 
